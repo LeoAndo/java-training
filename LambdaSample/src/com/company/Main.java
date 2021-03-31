@@ -2,6 +2,9 @@ package com.company;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     private static final String[] names = new String[]{"abcd", "ab", "a", "abc"};
@@ -10,6 +13,11 @@ public class Main {
         Arrays.sort(names, lengthComparator);
         for (String name : names) {
             System.out.println("sorted names: " + name);
+        }
+        Stream<Foo> stream = Arrays.stream(names).map(Foo::new);
+        List<Foo> fooList = stream.collect(Collectors.toList());
+        for (Foo foo : fooList) {
+            System.out.println("message: " + foo.getMessage());
         }
     }
 
