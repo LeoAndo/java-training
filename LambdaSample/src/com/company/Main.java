@@ -13,9 +13,7 @@ public class Main {
         }
     }
 
-    static Comparator<String> lengthComparator = (first, second) -> {
-        return Integer.compare(first.length(), second.length());
-    };
+    static Comparator<String> lengthComparator = Comparator.comparingInt(String::length);
     /*
     static class LengthComparator implements Comparator<String> {
         @Override
