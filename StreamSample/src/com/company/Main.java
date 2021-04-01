@@ -3,6 +3,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -27,6 +28,14 @@ public class Main {
         System.out.println(filterByLength());
         toUpperCase();
         generateStream();
+        concatStream();
+    }
+
+    private static void concatStream() {
+        Stream<String> stream1 = Stream.of("Hello, ");
+        Stream<String> stream2 = Stream.of("Java8.");
+        Stream<String> combined = Stream.concat(stream1, stream2);
+        System.out.println(combined.collect(Collectors.joining()));
     }
 
     private static void generateStream() {
