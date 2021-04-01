@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -16,9 +17,19 @@ public class Main {
             "12345678",
             "123456789",
             "1234567890");
+    static List<String> dataset2 = Arrays.asList(
+            "abc",
+            "def"
+    );
 
     public static void main(String[] args) {
         System.out.println(filterByLength());
+        toUpperCase();
+    }
+
+    private static void toUpperCase() {
+        Stream<String> stream = dataset2.stream().map(s -> s.toUpperCase());
+        stream.forEach(System.out::println);
     }
 
     private static long filterByLength() {
