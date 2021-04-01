@@ -12,7 +12,6 @@ public class Main {
 
     private static long filterByLength() {
         // 元データのdatasetは変更せずに処理結果を返す.
-        long count = Arrays.stream(dataset).filter(data -> 3 < data.length()).count();
-        return count;
+        return Arrays.stream(dataset).filter(data -> 3 < data.length()).count();
     }
 }
