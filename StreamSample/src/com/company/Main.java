@@ -24,7 +24,7 @@ public class Main {
     private static long filterByLength() {
         // 元データのdatasetは変更せずに処理結果を返す.
         long start = System.currentTimeMillis();
-        long count = dataset.stream().filter(data -> 3 < data.length()).count();
+        long count = dataset.parallelStream().filter(data -> 3 < data.length()).count();
         long end = System.currentTimeMillis();
         System.out.println("filterByLength 処理時間: " + (end - start) + " milliseconds.");
         return count;
