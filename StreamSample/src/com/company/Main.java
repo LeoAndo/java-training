@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Main {
 
     private static String[] dataset = {"a", "ab", "abc", "abcd", "abcde", "abcdef"};
@@ -8,11 +10,9 @@ public class Main {
         System.out.println(filterByLength());
     }
 
-    private static int filterByLength() {
-        int count = 0;
-        for (String data : dataset) {
-            if (3 < data.length()) count++;
-        }
+    private static long filterByLength() {
+        // 元データのdatasetは変更せずに処理結果を返す.
+        long count = Arrays.stream(dataset).filter(data -> 3 < data.length()).count();
         return count;
     }
 }
