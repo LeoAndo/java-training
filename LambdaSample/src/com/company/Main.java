@@ -19,6 +19,13 @@ public class Main {
         for (Foo foo : fooList) {
             System.out.println("message: " + foo.getMessage());
         }
+
+        runInterfaceExampleCode();
+    }
+
+    private static void runInterfaceExampleCode() {
+        Student s = new Student();
+        System.out.println("name: " + s.getName());
     }
 
     static Comparator<String> lengthComparator = Comparator.comparingInt(String::length);
