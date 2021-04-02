@@ -40,6 +40,7 @@ public class Main {
         findFirst();
         findAny();
         anyMatch();
+        defaultValueOptional();
     }
 
     /**
@@ -64,6 +65,12 @@ public class Main {
     private static void anyMatch() {
         boolean result = dataset3.stream().anyMatch(b -> !b);
         System.out.println("anyMatch: " + result);
+    }
+
+    private static void defaultValueOptional() {
+        String nullableValue = null;
+        String optional = Optional.ofNullable(nullableValue).orElse("default value....");
+        System.out.println("defaultValueOptional: " + optional);
     }
 
     /**
