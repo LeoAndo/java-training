@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -21,6 +22,13 @@ public class Main {
         }
 
         runInterfaceExampleCode();
+        repeat(3, () -> System.out.println("Hello, Java8..."));
+    }
+
+    private static void repeat(int i, Runnable runnable) {
+        IntStream.range(0, i).forEach(index ->
+                runnable.run()
+        );
     }
 
     private static void runInterfaceExampleCode() {
