@@ -54,7 +54,7 @@ public class Main {
      * 条件に一致したいずれかの要素を取得する.
      */
     private static void findAny() {
-        Optional<String> result = dataset2.stream().parallel().filter(s -> s.startsWith("def")).findAny();
+        Optional<String> result = dataset2.stream().filter(s -> s.startsWith("def")).findAny();
         result.ifPresent(s -> System.out.println("findAny: " + s));
     }
 
@@ -62,7 +62,7 @@ public class Main {
      * 条件に一致した場合、trueを返す.
      */
     private static void anyMatch() {
-        boolean result = dataset3.stream().parallel().anyMatch(b -> !b);
+        boolean result = dataset3.stream().anyMatch(b -> !b);
         System.out.println("anyMatch: " + result);
     }
 
