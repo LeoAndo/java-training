@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,7 +21,15 @@ public class Main {
             "1234567890");
     static List<String> dataset2 = Arrays.asList(
             "abc",
-            "def"
+            "def",
+            "defg",
+            "defgh"
+    );
+    static List<Boolean> dataset3 = Arrays.asList(
+            true,
+            true,
+            false,
+            true
     );
 
     public static void main(String[] args) {
@@ -29,8 +37,38 @@ public class Main {
         toUpperCase();
         generateStream();
         concatStream();
+        findFirst();
+        findAny();
+        anyMatch();
     }
 
+    /**
+     * 条件に一致した最初の要素を取得する.
+     */
+    private static void findFirst() {
+        Optional<String> result = dataset2.stream().filter(s -> s.startsWith("def")).findFirst();
+        result.ifPresent(s -> System.out.println("findFirst: " + s));
+    }
+
+    /**
+     * 条件に一致したいずれかの要素を取得する.
+     */
+    private static void findAny() {
+        Optional<String> result = dataset2.stream().filter(s -> s.startsWith("def")).findAny();
+        result.ifPresent(s -> System.out.println("findAny: " + s));
+    }
+
+    /**
+     * 条件に一致した場合、trueを返す.
+     */
+    private static void anyMatch() {
+        boolean result = dataset3.stream().anyMatch(b -> !b);
+        System.out.println("anyMatch: " + result);
+    }
+
+    /**
+     * ２つのStreamを結合する
+     */
     private static void concatStream() {
         Stream<String> stream1 = Stream.of("Hello, ");
         Stream<String> stream2 = Stream.of("Java8.");
@@ -38,11 +76,17 @@ public class Main {
         System.out.println(combined.collect(Collectors.joining()));
     }
 
+    /**
+     * Streamオブジェクトの生成
+     */
     private static void generateStream() {
         Stream<Double> stream = Stream.generate(Math::random).limit(3);
         stream.forEach(System.out::println);
     }
 
+    /**
+     * 元となるStreamの値を変換する.
+     */
     private static void toUpperCase() {
         Stream<String> stream = dataset2.stream().map(s -> s.toUpperCase());
         stream.forEach(System.out::println);
