@@ -32,6 +32,8 @@ public class Main {
         createNotExistLocalDate();
         until();
         adjustLocalDate();
+        startSummerTime();
+        endSummerTime();
     }
 
     /**
@@ -99,5 +101,46 @@ public class Main {
         System.out.println("today hashcode: " + today.hashCode());
         System.out.println("firstTuesDay hashcode: " + firstTuesDay.hashCode());
         System.out.println("===========adjustLocalDate-END========");
+    }
+
+    private static final String ZONE_ID_EUR = "Europe/Berlin";
+
+    /*
+    2013-03-31T03:10+02:00[Europe/Berlin]
+     */
+    private static void startSummerTime() {
+        // 2020年中央ヨーロッパは、3月31日 2:00　からサマータイムが開始
+        System.out.println("===========startSummerTime-START========");
+        ZonedDateTime zonedDateTime = ZonedDateTime.of(
+                LocalDate.of(2013, Month.MARCH, 31),
+                LocalTime.of(2, 10), // 存在しない時間
+                ZoneId.of(ZONE_ID_EUR)
+        );
+        System.out.println(zonedDateTime); // サマータイムが始まると１時間進むので 3:10 という結果になる
+        System.out.println("===========startSummerTime-END========");
+    }
+
+    /*
+    zonedDateTime  2013-10-27T02:30+02:00[Europe/Berlin]
+    plusOneHours  2013-10-27T02:30+01:00[Europe/Berlin]
+    Duration.ofDays(7)  2013-11-03T01:30+01:00[Europe/Berlin]
+    Period.ofDays(7)  2013-11-03T02:30+01:00[Europe/Berlin]
+    plusDays  2013-11-03T02:30+01:00[Europe/Berlin]
+     */
+    private static void endSummerTime() {
+        System.out.println("===========endSummerTime-START========");
+        ZonedDateTime zonedDateTime = ZonedDateTime.of(
+                LocalDate.of(2013, Month.OCTOBER, 27),
+                LocalTime.of(2, 30),
+                ZoneId.of(ZONE_ID_EUR)
+        );
+        System.out.println("zonedDateTime  " + zonedDateTime);
+        System.out.println("plusOneHours  " + zonedDateTime.plusHours(1)); // サマータイムが終わると１時間戻される.
+
+        // サマータイムの境目にまたがる日付を調整する場合、Duration を使うと誤動作するので、PeriodもしくはplusDaysメソッドを使用する.
+        System.out.println("Duration.ofDays(7)  " + zonedDateTime.plus(Duration.ofDays(7)));
+        System.out.println("Period.ofDays(7)  " + zonedDateTime.plus(Period.ofDays(7)));
+        System.out.println("plusDays  " + zonedDateTime.plusDays(7));
+        System.out.println("===========endSummerTime-END========");
     }
 }
