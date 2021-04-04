@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -41,6 +42,7 @@ public class Main {
         findAny();
         anyMatch();
         defaultValueOptional();
+        range();
     }
 
     /**
@@ -71,6 +73,17 @@ public class Main {
         String nullableValue = null;
         String optional = Optional.ofNullable(nullableValue).orElse("default value....");
         System.out.println("defaultValueOptional: " + optional);
+    }
+
+    private static void range() {
+        System.out.println("===========range-START=============");
+        IntStream zeroToNine = IntStream.range(0, 10);
+        IntStream zeroToTen = IntStream.rangeClosed(0, 10);
+        zeroToNine.forEach(System.out::print);
+        System.out.println();
+        zeroToTen.forEach(System.out::print);
+        System.out.println();
+        System.out.println("===========range-END=============");
     }
 
     /**
