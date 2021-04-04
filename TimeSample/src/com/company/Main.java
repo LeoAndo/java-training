@@ -30,7 +30,8 @@ public class Main {
             System.out.println("millis2の方が処理時間が２倍以上かかっている.");
         }
 
-        exampleLocalDate(() -> DateTimeFormatter.ISO_LOCAL_DATE);
+        createLocalDate(() -> DateTimeFormatter.ISO_LOCAL_DATE);
+        createNotExistLocalDate(() -> DateTimeFormatter.ISO_LOCAL_DATE);
         until();
     }
 
@@ -44,13 +45,21 @@ public class Main {
         return Duration.between(start, end).toMillis();
     }
 
-    private static void exampleLocalDate(Supplier<DateTimeFormatter> formatter) {
+    private static void createLocalDate(Supplier<DateTimeFormatter> formatter) {
         LocalDate today = LocalDate.now();
         LocalDate tomorrow = today.plusDays(1);
         LocalDate odaNobunagasBirthday = LocalDate.of(1534, Month.JUNE, 23);
         System.out.println("today: " + formatter.get().format(today));
         System.out.println("tomorrow: " + formatter.get().format(tomorrow));
         System.out.println("odaNobunagasBirthday: " + formatter.get().format(odaNobunagasBirthday));
+    }
+
+    private static void createNotExistLocalDate(Supplier<DateTimeFormatter> formatter) {
+        LocalDate today = LocalDate.now();
+        LocalDate notExistDay1 = LocalDate.of(today.getYear(), Month.JANUARY, 31).plusMonths(1);
+        LocalDate notExistDay2 = LocalDate.of(today.getYear(), Month.MARCH, 31).minusMonths(1);
+        System.out.println("notExistDay1: " + formatter.get().format(notExistDay1));
+        System.out.println("notExistDay2: " + formatter.get().format(notExistDay2));
     }
 
     private static void until() {
