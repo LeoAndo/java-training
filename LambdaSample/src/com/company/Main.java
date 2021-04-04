@@ -3,6 +3,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -23,12 +24,16 @@ public class Main {
 
         runInterfaceExampleCode();
         repeat(3, () -> System.out.println("Hello, Java8..."));
+        repeat2(3, value -> System.out.println("Java" + value));
     }
 
     private static void repeat(int i, Runnable runnable) {
         IntStream.range(0, i).forEach(index ->
                 runnable.run()
         );
+    }
+    private static void repeat2(int i, IntConsumer intConsumer) {
+        IntStream.range(0, i).forEach(intConsumer::accept);
     }
 
     private static void runInterfaceExampleCode() {
