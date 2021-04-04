@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.function.Supplier;
 
 public class Main {
@@ -30,6 +31,7 @@ public class Main {
         }
 
         exampleLocalDate(() -> DateTimeFormatter.ISO_LOCAL_DATE);
+        until();
     }
 
     /**
@@ -49,5 +51,12 @@ public class Main {
         System.out.println("today: " + formatter.get().format(today));
         System.out.println("tomorrow: " + formatter.get().format(tomorrow));
         System.out.println("odaNobunagasBirthday: " + formatter.get().format(odaNobunagasBirthday));
+    }
+
+    private static void until() {
+        LocalDate today = LocalDate.now();
+        LocalDate anotherDay = today.plusMonths(1).plusDays(10);
+        long result = today.until(anotherDay, ChronoUnit.DAYS);
+        System.out.println("２つの日付の差は: " + result + " 日です。");
     }
 }
