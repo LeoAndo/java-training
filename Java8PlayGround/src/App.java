@@ -11,6 +11,20 @@ public class App {
         delimiter();
         floorMod();
         comparing();
+        equalsObject();
+    }
+
+    private static void equalsObject() {
+        System.out.println("==========equalsObject-START==========");
+        Person p1 = new Person("endo", "shozo");
+        Person p2 = new Person("endo", "shozo");
+        Person p3 = new Person("endo", "dayo");
+
+        boolean isEquals = p1.equals(p2);
+        boolean isEquals2 = p1.equals(p3);
+        System.out.println("isEquals: " + isEquals);
+        System.out.println("isEquals2: " + isEquals2);
+        System.out.println("==========equalsObject-END==========");
     }
 
     private static List<Person> persons = Arrays.asList(
