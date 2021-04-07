@@ -7,7 +7,7 @@ public class App {
         String a = "A";
         String b = "B";
         String c = "C";
-        String value = String.join(", ", a,b,c);
+        String value = String.join(", ", a, b, c);
         System.out.println("delimiter: " + value);
     }
 }
