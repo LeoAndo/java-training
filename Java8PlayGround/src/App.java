@@ -16,13 +16,20 @@ public class App {
     private static List<Person> persons = Arrays.asList(
         new Person("endo", "shozo"),
         new Person("endo", "akio"),
-        new Person("ando", "akio"),
+        new Person("anzai", "akio"),
         new Person("wakita", "yoshio")
     );
     private static void comparing() {
         Comparator<Person> byLastName = Comparator.comparing(t -> t.lastName);
         Comparator<Person> byFullName = byLastName.thenComparing(t -> t.firstName);
         Collections.sort(persons, byFullName);
+        for (Person person : persons) {
+            System.out.println("person: " + person.lastName + " " + person.firstName);
+        }
+
+        System.out.println("======== sort by lastName Length. ========");
+        Comparator<Person> lastNameLength = Comparator.comparingInt(t -> t.lastName.length());
+        Collections.sort(persons, lastNameLength);
         for (Person person : persons) {
             System.out.println("person: " + person.lastName + " " + person.firstName);
         }
