@@ -16,7 +16,6 @@ public class App {
 
     private static void floorMod() {
         int adjustment = -3;
-        IntStream.rangeClosed(1, 12).forEach(x ->System.out.println("floorMod: " + (x+adjustment) % 12));
-        // IntStream.range(0, 11).forEach(x ->System.out.println("floorMod: " + Math.floorMod(x + adjustment, 12)));
+        IntStream.rangeClosed(1, 12).forEach(x ->System.out.println("floorMod: " + Math.floorMod(x + adjustment, 12)));
     }
 }
