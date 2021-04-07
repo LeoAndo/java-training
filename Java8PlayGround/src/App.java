@@ -1,5 +1,13 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        delimiter();
+    }
+
+    private static void delimiter() {
+        String a = "A";
+        String b = "B";
+        String c = "C";
+        String value = a + ", " + b + ", " + c;
+        System.out.println("delimiter: " + value);
     }
 }
