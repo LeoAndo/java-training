@@ -12,6 +12,18 @@ public class App {
         floorMod();
         comparing();
         equalsObject();
+        compare();
+    }
+
+    private static void compare() {
+        System.out.println("==========compare-START==========");
+        int x = Integer.MIN_VALUE;
+        int y = 0;
+        int z = Integer.MAX_VALUE;
+        System.out.println("campare x,z: " + Integer.compare(x, z));
+        System.out.println("campare z,x: " + Integer.compare(z, x));
+        System.out.println("campare y,y: " + Integer.compare(y, y));
+        System.out.println("==========compare-END==========");
     }
 
     private static void equalsObject() {
