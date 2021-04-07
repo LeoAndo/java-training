@@ -21,8 +21,8 @@ public class App {
     );
     private static void comparing() {
         Comparator<Person> byLastName = Comparator.comparing(t -> t.lastName);
-        // Comparator<Person> byName = byLastName.thenComparing(t -> t.firstName);
-        Collections.sort(persons, byLastName);
+        Comparator<Person> byFullName = byLastName.thenComparing(t -> t.firstName);
+        Collections.sort(persons, byFullName);
         for (Person person : persons) {
             System.out.println("person: " + person.lastName + " " + person.firstName);
         }
