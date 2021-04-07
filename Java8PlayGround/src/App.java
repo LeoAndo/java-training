@@ -15,9 +15,7 @@ public class App {
     }
 
     private static void floorMod() {
-        int[] results = IntStream.range(-5, 5).filter(x -> Math.floorMod(x, 2) == 0).toArray();
-        for (int result : results) {
-            System.out.println("floorMod: " + result);
-        }
+        int adjustment = -3;
+        IntStream.rangeClosed(1, 12).forEach(x ->System.out.println("floorMod: " + Math.floorMod(x + adjustment, 12)));
     }
 }
