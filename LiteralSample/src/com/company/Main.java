@@ -8,7 +8,7 @@ public class Main {
     }
 
     private static void literalChar() {
-        System.out.println("========literalInt-START========");
+        System.out.println("========literalChar-START========");
         // 1文字
         char x = 'A';
         // 特殊文字 (先頭に ¥u をつけて4桁の16進数のUnicode(UTF-16)を指定する)
@@ -17,7 +17,7 @@ public class Main {
         System.out.println(x);
         System.out.println(y);
         System.out.println("A" + z + "B");
-        System.out.println("========literalInt-END========");
+        System.out.println("========literalChar-END========");
     }
 
     private static void literalDouble() {
