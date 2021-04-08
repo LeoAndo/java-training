@@ -11,6 +11,32 @@ public class App {
         delimiter();
         floorMod();
         comparing();
+        equalsObject();
+        compare();
+    }
+
+    private static void compare() {
+        System.out.println("==========compare-START==========");
+        int x = Integer.MIN_VALUE;
+        int y = 0;
+        int z = Integer.MAX_VALUE;
+        System.out.println("campare x,z: " + Integer.compare(x, z));
+        System.out.println("campare z,x: " + Integer.compare(z, x));
+        System.out.println("campare y,y: " + Integer.compare(y, y));
+        System.out.println("==========compare-END==========");
+    }
+
+    private static void equalsObject() {
+        System.out.println("==========equalsObject-START==========");
+        Person p1 = new Person("endo", "shozo");
+        Person p2 = new Person("endo", "shozo");
+        Person p3 = new Person("endo", "dayo");
+
+        boolean isEquals = p1.equals(p2);
+        boolean isEquals2 = p1.equals(p3);
+        System.out.println("isEquals: " + isEquals);
+        System.out.println("isEquals2: " + isEquals2);
+        System.out.println("==========equalsObject-END==========");
     }
 
     private static List<Person> persons = Arrays.asList(
