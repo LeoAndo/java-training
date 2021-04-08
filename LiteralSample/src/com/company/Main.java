@@ -5,6 +5,24 @@ public class Main {
         literalInt();
         literalDouble();
         literalChar();
+        literalLong();
+        literalFloat();
+    }
+
+    private static void literalFloat() {
+        System.out.println("========literalFloat-START========");
+        // float a = 10000000000; // コンパイルエラー (int型の値として認識されてるため、int型で扱える範囲を越した場合コンパイルエラーが起きる)
+        float a = 10000000000F; // long型のリテラルはLもしくはlをつける
+        System.out.println(a);
+        System.out.println("========literalFloat-END========");
+    }
+
+    private static void literalLong() {
+        System.out.println("========literalLong-START========");
+        // long a = 10000000000; // コンパイルエラー (int型の値として認識されてるため、int型で扱える範囲を越した場合コンパイルエラーが起きる)
+        long a = 10000000000L; // long型のリテラルはLもしくはlをつける
+        System.out.println(a);
+        System.out.println("========literalLong-END========");
     }
 
     private static void literalChar() {
