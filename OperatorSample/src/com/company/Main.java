@@ -10,5 +10,9 @@ public class Main {
         // インクリメント
         x++;
         System.out.println(x);
+
+        // 割り算
+        System.out.println(10 / 3);
+        System.out.println(10 / 3.0);
     }
 }
