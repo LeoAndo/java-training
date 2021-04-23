@@ -4,6 +4,23 @@ public class App {
     public static void main(String[] args) {
         calcMarumeGosa();
         calcKetaochi();
+        calcJyohoOchi();
+    }
+
+    private static void calcJyohoOchi() {
+        System.out.println("==========calcJyohoOchi-START==========");
+        System.out.println(1234567890.0D + 0.123456789D);// 期待値: 1.234567890123456789E9, 実行結果: 1.2345678901234567E9
+        System.out.println(1234567890.0D + 0.1234567D);// doubleの有効桁数の範囲で収まるので、期待通りの計算結果になる。
+        System.out.println();
+
+        System.out.println(12345.0F + 0.1234F);// 期待値: 12345.1234, 実行結果: 12345.123
+        System.out.println(12345.0F + 0.123F);// floatの有効桁数の範囲で収まるので、期待通りの計算結果になる。
+        System.out.println();
+
+        System.out.println(new BigDecimal("1234567890.0").add(new BigDecimal("0.123456789")));
+        System.out.println(new BigDecimal("12345.0").add(new BigDecimal("0.1234")));
+
+        System.out.println("==========calcJyohoOchi-END==========");
     }
 
     private static void calcKetaochi() {
