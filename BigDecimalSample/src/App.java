@@ -17,6 +17,11 @@ public class App {
         // 0.15: 減算結果の有効桁数が2桁に減り、コンピュータの浮動小数点形式では、
         // 計算の結果失われた下位の桁を0で埋めるため、0.1500000 になり、埋めた0の部分が桁落ちして計算の誤差が起きる.
         System.out.println(d3); // 期待値: 10進数では0.001581135で、正規化すると1.581135e-3
+        System.out.println();
+        
+        BigDecimal b = new BigDecimal("316.229347152");
+        BigDecimal b2 = new BigDecimal("316.227766017");
+        System.out.println(b.subtract(b2).toPlainString()); // 期待値: 10進数では0.001581135で、正規化すると1.581135e-3
         System.out.println("==========calcKetaochi-END==========");
     }
 
