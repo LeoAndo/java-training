@@ -5,6 +5,15 @@ public class App {
         calcMarumeGosa();
         calcKetaochi();
         calcJyohoOchi();
+        calcUchikiriGosa();
+    }
+
+    private static void calcUchikiriGosa() {
+        System.out.println("==========calcUchikiriGosa-START==========");
+        System.out.println(10.0F / 3.0F); // 演算結果の無限桁数をfloatの有効桁数で打ち切る.
+        System.out.println(10.0D / 3.0D); // 演算結果の無限桁数をdoubleの有効桁数で打ち切る.
+        System.out.println(new BigDecimal("10.0").divide(new BigDecimal("3.0"), 2, BigDecimal.ROUND_HALF_UP)); // 小数点２桁まで計算する.
+        System.out.println("==========calcUchikiriGosa-END==========");
     }
 
     private static void calcJyohoOchi() {
