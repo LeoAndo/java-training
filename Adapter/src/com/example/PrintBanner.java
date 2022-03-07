@@ -1,18 +1,20 @@
 package com.example;
 
 // Adapterの役割.
-public class PrintBanner extends Banner implements Print {
+public class PrintBanner extends Print {
+    private final Banner banner;
+
     public PrintBanner(String string) {
-        super(string);
+        this.banner = new Banner(string);
     }
 
     @Override
     public void printWeak() {
-        showWithParen();
+        this.banner.showWithParen();
     }
 
     @Override
     public void printStrong() {
-        showWithAster();
+        this.banner.showWithAster();
     }
 }
