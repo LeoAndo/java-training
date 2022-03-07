@@ -1,6 +1,6 @@
 package com.example;
 
-public class CharDisplay extends AbstractDisplay {
+public class CharDisplay implements AbstractDisplay {
     private final char ch; // 表示すべき文字
 
     // コンストラクタ
