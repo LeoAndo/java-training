@@ -1,6 +1,6 @@
 package com.example;
 
-public class StringDisplay extends AbstractDisplay {
+public class StringDisplay implements AbstractDisplay {
     private final String string;  // 表示すべき文字列
     private final int width;      // 文字列の表示幅
 
