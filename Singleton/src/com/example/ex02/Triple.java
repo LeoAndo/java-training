@@ -4,16 +4,18 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public record Triple(String name) {
-    private static final Map<String, Triple> map = new HashMap<>();
-
+public class Triple {
+    private static final Map<String,Triple> map = new HashMap<>();
     static {
-        String[] names = {"ALPHA", "BETA", "GAMMA"};
+        String[] names = { "ALPHA", "BETA", "GAMMA" };
         Arrays.stream(names).forEach(s -> map.put(s, new Triple(s)));
     }
 
-    public Triple {
+    private final String name;
+
+    private Triple(String name) {
         System.out.println("The instance " + name + " is created.");
+        this.name = name;
     }
 
     public static Triple getInstance(String name) {
