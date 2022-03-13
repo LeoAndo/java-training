@@ -7,10 +7,13 @@ public class Main {
         Singleton obj1 = Singleton.getInstance();
         Singleton obj2 = Singleton.getInstance();
         if (obj1 == obj2) {
-            System.out.println("obj1とobj2は同じインスタンスです。");
+            System.out.println("obj1 and obj2 are the same instance.");
         } else {
-            System.out.println("obj1とobj2は同じインスタンスではありません。");
+            System.out.println("obj1 and obj2 are the other instance.");
         }
+
+        SingletonEnum.INSTANCE.hello();
+
         System.out.println("End.");
     }
 }
