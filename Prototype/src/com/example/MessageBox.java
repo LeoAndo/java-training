@@ -2,7 +2,7 @@ package com.example;
 
 import com.example.framework.Product;
 
-public class MessageBox implements Product {
+public class MessageBox extends Product {
     private char decochar;
 
     public MessageBox(char decochar) {
@@ -21,16 +21,5 @@ public class MessageBox implements Product {
             System.out.print(decochar);
         }
         System.out.println();
-    }
-
-    @Override
-    public Product createCopy() {
-        Product p = null;
-        try {
-            p = (Product)clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return p;
     }
 }
