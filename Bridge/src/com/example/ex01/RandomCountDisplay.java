@@ -5,10 +5,10 @@ import com.example.DisplayImpl;
 
 import java.util.Random;
 
-public class RandomCountDisplay extends CountDisplay {
+class RandomCountDisplay extends CountDisplay {
     private final Random random = new Random();
 
-    public RandomCountDisplay(DisplayImpl impl) {
+    RandomCountDisplay(DisplayImpl impl) {
         super(impl);
     }
 
