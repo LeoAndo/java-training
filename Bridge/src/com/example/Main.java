@@ -9,5 +9,8 @@ public class Main {
         d2.display();
         d3.display();
         d3.multiDisplay(5);
+
+        final RandomCountDisplay d4 = new RandomCountDisplay(new StringDisplayImpl("Hello, World."));
+        d4.randomDisplay(10);
     }
 }
