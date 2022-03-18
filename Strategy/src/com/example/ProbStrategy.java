@@ -3,10 +3,10 @@ package com.example;
 import java.util.Random;
 
 public class ProbStrategy implements Strategy {
-    private Random random;
+    private final Random random;
     private int prevHandValue = 0;
     private int currentHandValue = 0;
-    private int[][] history = {
+    private final int[][] history = {
         { 1, 1, 1, },
         { 1, 1, 1, },
         { 1, 1, 1, },
@@ -19,7 +19,7 @@ public class ProbStrategy implements Strategy {
     @Override
     public Hand nextHand() {
         int bet = random.nextInt(getSum(currentHandValue));
-        int handvalue = 0;
+        int handvalue;
         if (bet < history[currentHandValue][0]) {
             handvalue = 0;
         } else if (bet < history[currentHandValue][0] + history[currentHandValue][1]) {

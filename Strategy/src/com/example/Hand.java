@@ -7,11 +7,11 @@ public enum Hand {
     PAPER("パー", 2);
 
     // enumが持つフィールド
-    private String name; // じゃんけんの手の名前
-    private int handvalue; // じゃんけんの手の値
+    private final String name; // じゃんけんの手の名前
+    private final int handvalue; // じゃんけんの手の値
 
     // 手の値から定数を得るための配列
-    private static Hand[] hands = {
+    private static final Hand[] hands = {
         ROCK, SCISSORS, PAPER
     };
 

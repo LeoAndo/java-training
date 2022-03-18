@@ -1,8 +1,8 @@
 package com.example;
 
 public class Player {
-    private String name;
-    private Strategy strategy;
+    private final String name;
+    private final Strategy strategy;
     private int wincount;
     private int losecount;
     private int gamecount;
