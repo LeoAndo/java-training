@@ -1,11 +1,14 @@
-package com.example;
+package com.example.ex01;
+
+import com.example.CountDisplay;
+import com.example.DisplayImpl;
 
 import java.util.Random;
 
-class RandomCountDisplay extends CountDisplay {
+public class RandomCountDisplay extends CountDisplay {
     private final Random random = new Random();
 
-    RandomCountDisplay(DisplayImpl impl) {
+    public RandomCountDisplay(DisplayImpl impl) {
         super(impl);
     }
 
