@@ -21,7 +21,8 @@ public class VolatileSample01 {
     // Thread-1
     private static class MultiThread2 extends Thread {
         public void run() {
-            while (count < 10) {}
+            while (count < 10) {
+            }
             System.out.println("Thread-1 finish" + count);
         }
     }
